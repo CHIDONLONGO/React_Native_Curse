@@ -7,7 +7,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
        <AppButton
-        bgColor = "blue"
+        bgColor = "red"
         title ="Boton"
         action={() => console.log(1)}
         iconName="sign-in"
