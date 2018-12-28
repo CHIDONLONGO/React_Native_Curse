@@ -13,6 +13,10 @@ export default class Start extends Component {
     }
 
     login() {
+        const navigateAction = NavigationActions.navigate({
+            routeName:'Login'
+        });
+        this.props.navigation.dispatch(navigateAction);
 
     }
 
