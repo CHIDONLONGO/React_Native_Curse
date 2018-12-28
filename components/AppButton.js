@@ -18,6 +18,10 @@ export default class AppButton extends Component {
                     marginBottom: 5,
                     width: width
                 }}
+                containerStyle={{
+                    opacity:0.8,
+                    backgroundColor:bgColor
+                }}
                 title={title}
                 icon={
                     <Icon
