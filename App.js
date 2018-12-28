@@ -4,15 +4,50 @@ import firebaseConfig from './utils/firebase';
 import * as firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 
+
+import {Text} from 'react-native-elements'
+
 import GuestNavigation from './navigations/guest';
 
 export default class App extends React.Component {
+  constructor(){
+    super();
+    this.state={
+      isLogged: false,
+      loaded:false
+    }
+  }
+
+  async componentDidMount(){
+    await firebase.auth().onAuthStateChanged((user) =>{
+      if(user !== null ){
+        this.setState({
+          isLogged:true,
+          loaded:true
+        });
+      }
+      else{
+        this.setState({
+          isLogged:false,
+          loaded:false
+        });
+      }
+    })
+  }
   render() {
-    return (
 
-      <GuestNavigation/>
+    const {isLogged,loaded}= this.state;
+    //if(! loaded){
+    //  return(<PreLoader/>);
+   // }
+    if(isLogged){
+      return(<Text>Logeado</Text>)
+    }
+    else{
+      return(<GuestNavigation/>)
+    }
 
-    );
+    
   }
 }
 

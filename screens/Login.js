@@ -59,7 +59,7 @@ export default class Login extends Component {
 
     render(){
         return(
-            <BackgroundImage source={require('../assets/images/reimi.jpg')} >
+            <BackgroundImage source={require('../assets/images/oxxo.jpg')} >
                 <View>
                     <Card wrapperStyle={{paddingLeft:10}} title="Iniciar sesion">
                     <Form

@@ -21,6 +21,10 @@ export default class Start extends Component {
     }
 
     register() {
+        const navigateAction = NavigationActions.navigate({
+            routeName:'Register'
+        });
+        this.props.navigation.dispatch(navigateAction);
 
     }
 
@@ -43,7 +47,7 @@ export default class Start extends Component {
                     <AppButton
                         bgColor="rgba(200,200,50,0.7)"
                         title="Registrarme"
-                        action={this.login.bind(this)}
+                        action={this.register.bind(this)}
                         iconName="user-plus"
                         iconSize={30}
                         iconColor="#fff"
@@ -51,7 +55,7 @@ export default class Start extends Component {
                     <AppButton
                         bgColor="rgba(67,67,145,0.7)"
                         title="Facebook"
-                        action={this.login.bind(this)}
+                        action={this.facebook.bind(this)}
                         iconName="facebook"
                         iconSize={30}
                         iconColor="#fff"
