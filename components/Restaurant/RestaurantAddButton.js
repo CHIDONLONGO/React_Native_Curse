@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppButton from "../components/AppButton";
+import AppButton from "../AppButton";
 import { StyleSheet, View } from 'react-native';
 
 
@@ -20,13 +20,15 @@ export default class RestaurantAppButton extends Component {
         );
       }
 
-  const styles = StyleSheet.create({
-      buttonContainer:{
-          position:'absolute',
-          alignSelf: 'flex-end',
-          bottom:0,
-      }
-  })
+  
 
   
 }
+
+const styles = StyleSheet.create({
+    buttonContainer:{
+        position:'absolute',
+        alignSelf: 'flex-end',
+        bottom:0,
+    }
+})
