@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantsScreen from "../screens/Restaurants/Restaurants";
+import AddRestaurantScreen from "../screens/Restaurants/AddRestaurant"
 import LogoutScreen from "../screens/Logout"
 
 import { DrawerNavigator, StackNavigator } from "react-navigation";
@@ -22,7 +23,7 @@ const navigationOptions = {
 
 const leftIcon = (navigation, icon) => <Icon
     name={icon}
-    style={{marginLeft: 20}}
+    style={{ marginLeft: 20 }}
     size={20}
     color="white"
     onPress={() => navigation.navigate('DrawerOpen')}
@@ -30,7 +31,7 @@ const leftIcon = (navigation, icon) => <Icon
 
 const rightIcon = (navigation, icon) => <Icon
     name={icon}
-    style={{marginLeft: 20}}
+    style={{ marginLeft: 20 }}
     size={20}
     color="white"
     onPress={() => navigation.navigate('ListRestaurants')}
@@ -43,6 +44,14 @@ const restaurantsScreenStack = StackNavigator(
             navigationOptions: ({ navigation }) => ({
                 title: 'Restaurantes',
                 drawerIcon: ({ tintColor }) => (<Icon name="home" size={24} style={{ color: tintColor }} />),
+                headerLeft: leftIcon(navigation, 'bars')
+            })
+        },
+        AddRestaurant: {
+            screen: AddRestaurantScreen,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Añadir restaurante',
+                headerRight: rightIcon(navigation, 'home'),
                 headerLeft: leftIcon(navigation, 'bars')
             })
         }
