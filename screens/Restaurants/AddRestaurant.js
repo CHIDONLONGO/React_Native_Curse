@@ -8,6 +8,7 @@ import t from 'tcomb-form-native';
 import { Card } from 'react-native-elements';
 const Form = t.form.Form;
 import Toast from 'react-native-simple-toast';
+import { update } from 'tcomb';
 
 export default class AddRestaurant extends Component {
     constructor() {
@@ -23,7 +24,16 @@ export default class AddRestaurant extends Component {
     }
 
     save() {
-        
+        const validate = this.refs.form.getValue();
+        if(validate){
+            let data = {};
+            const key = firebase.database().ref().child('restaurants').push().key;
+            data[`restaurants/${key}`] = this.state.restaurant;
+            firebase.database().ref().update(data).then(()=>{
+                Toast.showWithGravity('Restaurante dado de alta', Toast.LONG,Toast.BOTTOM);
+                this.props.navigation.navigate('ListRestaurants');
+            });
+        }
     }
 
     onChange(restaurant) {

@@ -12,7 +12,8 @@ export default class AppButton extends Component {
                 onPress={action}
                 buttonStyle={{
                     backgroundColor: bgColor,
-                    height: 45, borderColor: "transparent",
+                    height: 45, 
+                    borderColor: "transparent",
                     borderWidth: 0,
                     borderRadius: 5,
                     marginBottom: 5,

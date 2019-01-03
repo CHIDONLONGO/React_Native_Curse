@@ -31,7 +31,7 @@ const leftIcon = (navigation, icon) => <Icon
 
 const rightIcon = (navigation, icon) => <Icon
     name={icon}
-    style={{ marginLeft: 20 }}
+    style={{ marginRight: 20 }}
     size={20}
     color="white"
     onPress={() => navigation.navigate('ListRestaurants')}

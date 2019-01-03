@@ -28,23 +28,30 @@ export const options = {
                 min:1,
                 max:100
             },
-            templates:sliderTemplate
+            template:sliderTemplate
         },
-        description:{
-            label:'Descripcion (*)',
-            placeholder:'Descripcion',
-            multiline:true,
-            stylesheet:{
+        description: {
+            label: 'Descripcion (*)',
+            placeholder: 'Descripcion',
+            multiline: true,
+            stylesheet: {
                 ...Form.stylesheet,
-                textbox:{
-                    ...Form.stylesheet.textbox.normal,
-                    height:150
-                },
-                error:{
-                    ...Form.stylesheet.textbox.error,
-                    height:150
+                textbox: {
+                    ...Form.stylesheet.textbox,
+                    normal: {
+                        ...Form.stylesheet.textbox.normal,
+                        height: 150,
+                    },
+                    error: {
+                        ...Form.stylesheet.textbox.error,
+                        height: 150,
+                    },
                 }
+
+            
+                
             }
+            
         }
     }
 };
