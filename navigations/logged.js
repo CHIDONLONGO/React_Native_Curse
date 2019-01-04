@@ -95,7 +95,7 @@ export default DrawerNavigator(
         contentOptions: {
             activeTintColor: 'white',
             activeBackgroundColor: 'transparent',
-            inactiveTintColor: 'whitw',
+            inactiveTintColor: 'white',
             itemsContainerStyle: {
                 marginVertical: 0,
             }
