@@ -4,6 +4,7 @@ import PreLoader from "../PreLoader";
 import { StyleSheet, FlatList, View } from 'react-native';
 import BackgroundImage from "../BackgroundImage";
 import * as firebase from 'firebase';
+import CommentEmpty from './CommentEmpty';
 
 
 export default class CommentList extends Component {
@@ -39,11 +40,7 @@ export default class CommentList extends Component {
             return (<PreLoader />)
         }
         if (!comments.length) {
-            return (
-                <View>
-                    <Text>No hay comentarios</Text>
-                </View>
-            )
+            return <CommentEmpty/>
         }
 
         return (

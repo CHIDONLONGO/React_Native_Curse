@@ -9,7 +9,7 @@ export default class Restaurant extends Component {
         return (
             <Card
                 title={restaurant.name}
-                image={require('../../assets/images/reimi.jpg')}
+                image={require('../../assets/images/sdm.jpg')}
             >
                 <RestaurantRating restaurantId={restaurant.id} />
 
