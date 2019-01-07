@@ -5,7 +5,7 @@ import { StyleSheet, FlatList, View } from 'react-native';
 import BackgroundImage from "../BackgroundImage";
 import * as firebase from 'firebase';
 import CommentEmpty from './CommentEmpty';
-
+import Comment from './Comment'
 
 export default class CommentList extends Component {
     constructor() {
@@ -59,7 +59,7 @@ export default class CommentList extends Component {
 
     renderComment(comment) {
         return (
-            <Text>{comment.comment}</Text>
+            <Comment comment={comment}/>
         )
     }
 }

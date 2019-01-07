@@ -23,11 +23,6 @@ export default class Restaurant extends Component {
 
   }
 
-
-
-
-
-
   componentDidMount() {
     this.refRestaurants.on('value', snapshot => {
       let restaurants = [];
@@ -35,7 +30,7 @@ export default class Restaurant extends Component {
         restaurants.push({
           id: row.key,
           name: row.val().name,
-          address:row.val().address,
+          address: row.val().address,
           capacity: row.val().capacity,
           description: row.val().description
         })
@@ -58,7 +53,7 @@ export default class Restaurant extends Component {
   restaurantDetail(restaurant) {
     const navigateAction = NavigationActions.navigate({
       routeName: 'DetailRestaurant',
-      params:{restaurant}
+      params: { restaurant }
     });
     this.props.navigation.dispatch(navigateAction);
   }
