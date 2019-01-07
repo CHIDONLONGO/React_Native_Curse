@@ -1,38 +1,42 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
-import {ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 import BackgroundImage from "../../components/BackgroundImage";
 import Restaurant from '../../components/Restaurant/Restaurant';
+import CommentForm from '../../components/Comment/CommentForm';
 
 export default class DetailRestaurant extends Component {
   constructor(props) {
     super(props);
-    const {params} = props.navigation.state;
+    const { params } = props.navigation.state;
     this.state = {
-        restaurant: params.restaurant
+      restaurant: params.restaurant
     };
   }
 
-  editRestaurant(){
+  editRestaurant() {
 
   }
 
-  goHome(){
+  goHome() {
 
   }
 
   render() {
-      const {restaurant}= this.state;
+    const { restaurant } = this.state;
     return (
       <BackgroundImage source={require('../../assets/images/reimi.jpg')} >
-          <ScrollView>
-            <Restaurant
-              goHome={this.goHome.bind(this)}
-              editRestaurant={this.editRestaurant.bind(this)}
-              restaurant={restaurant}
-            />
-          </ScrollView>
+        <ScrollView>
+          <Restaurant
+            goHome={this.goHome.bind(this)}
+            editRestaurant={this.editRestaurant.bind(this)}
+            restaurant={restaurant}
+          />
+
+          <CommentForm restaurantId={restaurant.id} />
+
+        </ScrollView>
       </BackgroundImage>
     );
   }
