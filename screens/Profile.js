@@ -40,11 +40,34 @@ export default class Profile extends Component {
         });
     }
 
-    render(){
-        const{user} = this.state;
-        return(
-            <BackgroundImage>
-                
+    render() {
+        const { user } = this.state;
+        return (
+            <BackgroundImage source={require('../assets/images/oxxo.jpg')} >
+                <Card>
+                    <Input
+                        placeholder="Nombre del usuario"
+                        shake={true}
+                        value={user.name}
+                        onChangeText={(val) => this.updateName(val)}
+                    />
+                    <Input
+                        placeholder="Edad del usuario"
+                        shake={true}
+                        value={user.age}
+                        onChangeText={(val) => this.updateAge(val)}
+                    />
+                    <View style={{marginTop:20}} >
+                        <Appbutton
+                            bgColor="rgba(203,78,72,0.9)"
+                            title="Guardar en local"
+                            action={this.save.bind(this)}
+                            iconName={"save"}
+                            iconSize={30}
+                            iconColor="#fff"
+                        />
+                    </View>
+                </Card>
             </BackgroundImage>
         );
     }
