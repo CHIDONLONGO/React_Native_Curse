@@ -16,14 +16,18 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "ios": {
+      "bundleIdentifier": "com.Ria2Da.chidonlongo",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.Ria2Da.chidonlongo"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }

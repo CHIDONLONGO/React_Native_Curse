@@ -15,6 +15,7 @@ export default class RestaurantAppButton extends Component {
                 iconName="plus"
                 iconSize={30}
                 iconColor="#fff"
+                setWidth={true}
             />
           </View>
         );

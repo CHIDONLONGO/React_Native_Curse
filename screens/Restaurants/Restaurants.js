@@ -63,9 +63,8 @@ export default class Restaurant extends Component {
       <ListItem
         containerStyle={styles.item}
         titleStyle={styles.title}
-        roundAvatar
         title={`${restaurant.name}(Capacidad: ${restaurant.capacity})`}
-        avatar={this.state.restaurant_logo}
+        leftAvatar={{source:this.state.restaurant_logo}}
         onPress={() => this.restaurantDetail(restaurant)}
         rightIcon={{ name: 'arrow-right', type: 'font-awesome', style: styles.listIconStyle }}
       />
@@ -93,6 +92,7 @@ export default class Restaurant extends Component {
         <FlatList
           data={restaurants}
           renderItem={(data) => this.renderRestaurant(data.item)}
+          keyExtractor={(data) => data.id}
         />
         <RestaurantAddButton addRestaurant={this.addRestaurant.bind(this)} />
       </BackgroundImage>
