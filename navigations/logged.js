@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import AddRestaurantScreen from "../screens/Restaurants/AddRestaurant"
 import DetailRestaurantScreen from "../screens/Restaurants/DetailRestaurant";
 import EditRestaurantScreen from "../screens/Restaurants/EditRestaurant";
+import ReviewsRestaurantScreen from "../screens/Restaurants/ReviewsRestaurant";
 import ProfileScreen from "../screens/Profile";
 
 const navigationOptions = {
@@ -100,30 +101,52 @@ const logoutScreenStack = createStackNavigator(
                 title: 'Cerrar sesion',
             })
         }
-    }
+    },
+    navigationOptions
+);
+
+const reviewsRestaurantScreenStack = createStackNavigator(
+    {
+        ReviewsRestaurant: {
+            screen: ReviewsRestaurantScreen,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Valoraciones',
+                headerRight: rightIcon(navigation, 'home'),
+                headerLeft: leftIcon(navigation, 'bars')
+            })
+        }
+    },
+    navigationOptions
 );
 
 export default createDrawerNavigator(
     {
         RestaurantsScreen: {
             screen: restaurantsScreenStack,
-            navigationOptions:({navigation}) =>({
-                drawerLabel:'Restaurantes',
-                drawerIcon:({tintColor}) => (<Icon name="home" size={30} style={{color:tintColor}}/> ),
+            navigationOptions: ({ navigation }) => ({
+                drawerLabel: 'Restaurantes',
+                drawerIcon: ({ tintColor }) => (<Icon name="home" size={30} style={{ color: tintColor }} />),
             })
         },
         ProfileScreen: {
             screen: profileScreenStack,
-            navigationOptions:({navigation}) =>({
-                drawerLabel:'Perfil',
-                drawerIcon:({tintColor}) => (<Icon name="user" size={30} style={{color:tintColor}}/> ),
+            navigationOptions: ({ navigation }) => ({
+                drawerLabel: 'Perfil',
+                drawerIcon: ({ tintColor }) => (<Icon name="user" size={30} style={{ color: tintColor }} />),
+            })
+        },
+        ReviewScreen: {
+            screen: reviewsRestaurantScreenStack,
+            navigationOptions: ({ navigation }) => ({
+                drawerLabel: 'Valoraciones',
+                drawerIcon: ({ tintColor }) => (<Icon name="comments" size={30} style={{ color: tintColor }} />),
             })
         },
         LogoutScreen: {
             screen: logoutScreenStack,
-            navigationOptions:({navigation}) =>({
-                drawerLabel:'Cerrar sesion',
-                drawerIcon:({tintColor}) => (<Icon name="sign-out" size={30} style={{color:tintColor}}/> ),
+            navigationOptions: ({ navigation }) => ({
+                drawerLabel: 'Cerrar sesion',
+                drawerIcon: ({ tintColor }) => (<Icon name="sign-out" size={30} style={{ color: tintColor }} />),
             })
         }
     },

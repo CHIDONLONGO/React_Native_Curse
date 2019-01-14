@@ -16,8 +16,20 @@ export default class CommentList extends Component {
         };
     }
 
-    componentDidMount() {
-        firebase.database().ref(`comments/${this.props.restaurantId}`).on('value', snapshot => {
+    componentDidMount () {
+        this._loadComments();
+        
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.restaurantId !== nextProps.restaurantId) {
+            this._loadComments(nextProps.restaurantId)
+        }
+    }
+
+    _loadComments (restaurantId = null) {
+        firebase.database().ref(`comments/${restaurantId ? restaurantId : this.props.restaurantId}`)
+            .on('value', snapshot => {
             let comments = [];
             snapshot.forEach(row => {
                 comments.push({
@@ -26,8 +38,8 @@ export default class CommentList extends Component {
                     comment: row.val().comment
                 });
             });
-            this.setState({
-                comments,
+            this.setState ( {
+                comments, 
                 loaded: true
             });
         })
